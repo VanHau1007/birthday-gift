@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fce4ec;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #d81b60;
+        }
+        #slideshow {
+            position: relative;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        #slideshow img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        #slideshow img.active {
+            opacity: 1;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday to You!</h1>
+    <div id="slideshow">
+        <img src="https://via.placeholder.com/500x300?text=Image+1" class="active">
+        <img src="https://via.placeholder.com/500x300?text=Image+2">
+        <img src="https://via.placeholder.com/500x300?text=Image+3">
+    </div>
+    <footer>Wishing you a day filled with love, joy, and happiness!</footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('#slideshow img');
+        
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 3000);
+    </script>
+</body>
+</html>
